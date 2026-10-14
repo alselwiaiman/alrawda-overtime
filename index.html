@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#123c32">
+  <title>منصة الروضة | الإضافي وبدل التغطية</title>
+  <style>
+    :root {
+      --green: #174c3c;
+      --green-light: #e8f2ed;
+      --gold: #c7a45b;
+      --bg: #f4f6f5;
+      --text: #26332d;
+      --border: #dce5df;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background: var(--green);
+      color: white;
+      padding: 18px 16px;
+      border-bottom: 4px solid var(--gold);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 13px;
+      color: #e1eee8;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 0 14px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.035);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--green);
+      font-size: 19px;
+    }
+
+    .notice {
+      padding: 12px;
+      border-radius: 8px;
+      background: var(--green-light);
+      line-height: 1.8;
+      font-size: 13px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: white;
+      font: inherit;
+      font-size: 14px;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid #a8cbbc;
+      border-color: var(--green);
+    }
+
+    .field { margin-bottom: 15px; }
+
+    button {
+      border: 0;
+      border-radius: 7px;
+      padding: 12px 18px;
+      cursor: pointer;
+      font: inherit;
+      font-weight: bold;
+    }
+
+    .primary {
+      background: var(--green);
+      color: white;
+    }
+
+    .secondary {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 16px;
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    nav button {
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--green);
+    }
+
+    nav button.active {
+      background: var(--green);
+      color: white;
+    }
+
+    .hidden { display: none !important; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      background: var(--green-light);
+      padding: 16px;
+      border-radius: 9px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 25px;
+      color: var(--green);
+      margin-bottom: 5px;
+    }
+
+    .table-wrap { overflow-x: auto; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+
+    th, td {
+      padding: 11px;
+      border-bottom: 1px solid var(--border);
+      text-align: right;
+      font-size: 13px;
+    }
+
+    th {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    footer {
+      text-align: center;
+      color: #66736c;
+      font-size: 12px;
+      padding: 24px 12px;
+    }
+
+    @media (max-width: 500px) {
+      header h1 { font-size: 19px; }
+      .card { padding: 15px; }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="header-inner">
+    <h1>منصة الروضة</h1>
+    <p>إدارة كشوف العمل الإضافي وبدل التغطية</p>
+  </div>
+</header>
+
+<main>
+  <section id="login" class="card">
+    <h2>تسجيل الدخول</h2>
+    <p class="notice">
+      الدخول مخصص للمستخدمين الذين أنشأ مدير النظام حساباتهم.
+      هذه الواجهة تجريبية؛ لم يتم تفعيل التحقق الحقيقي من الحسابات بعد.
+    </p>
+
+    <form id="loginForm">
+      <div class="field">
+        <label for="username">الرقم الوظيفي أو اسم المستخدم</label>
+        <input id="username" autocomplete="username" required
+               placeholder="أدخل الرقم الوظيفي">
+      </div>
+
+      <div class="field">
+        <label for="password">كلمة المرور</label>
+        <input id="password" type="password"
+               autocomplete="current-password" required
+               placeholder="أدخل كلمة المرور">
+      </div>
+
+      <button class="primary" type="submit">دخول</button>
+      <p id="loginMessage" role="status"></p>
+    </form>
+  </section>
+
+  <section id="app" class="hidden">
+    <nav aria-label="أقسام المنصة">
+      <button class="active" data-page="dashboard">الرئيسية</button>
+      <button data-page="request">كشف جديد</button>
+      <button data-page="requests">الطلبات</button>
+      <button data-page="employees">الموظفون</button>
+      <button data-page="reports">التقارير</button>
+      <button id="logout" class="secondary">خروج</button>
+    </nav>
+
+    <section id="dashboard" class="card page">
+      <h2>لوحة المعلومات</h2>
+      <div class="stats">
+        <div class="stat"><strong id="totalRequests">0</strong>عدد الكشوف</div>
+        <div class="stat"><strong id="totalEmployees">0</strong>عدد الموظفين المسجلين محليًا</div>
+        <div class="stat"><strong id="pendingRequests">0</strong>طلبات قيد المراجعة</div>
+      </div>
+      <p class="notice" style="margin-top:16px">
+        هذه أرقام تجريبية، وستُربط بقاعدة البيانات بعد إعداد المصادقة والصلاحيات.
+      </p>
+    </section>
+
+    <section id="request" class="card page hidden">
+      <h2>كشف العمل الإضافي وبدل التغطية</h2>
+
+      <form id="requestForm">
+        <div class="grid">
+          <div class="field">
+            <label for="department">الإدارة / القسم</label>
+            <input id="department" required>
+          </div>
+
+          <div class="field">
+            <label for="section">الشعبة</label>
+            <input id="section">
+          </div>
+
+          <div class="field">
+            <label for="requestDate">تاريخ الكشف</label>
+            <input id="requestDate" type="date" required>
+          </div>
+
+          <div class="field">
+            <label for="requestType">نوع الاستحقاق</label>
+            <select id="requestType" required>
+              <option value="عمل إضافي">عمل إضافي</option>
+              <option value="بدل تغطية">بدل تغطية</option>
+            </select>
+          </div>
+        </div>
+
+        <h2>بيانات الموظف</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="employeeNumber">الرقم الوظيفي</label>
+            <input id="employeeNumber" required>
+          </div>
+
+          <div class="field">
+            <label for="employeeName">اسم الموظف</label>
+            <input id="employeeName" required>
+          </div>
+
+          <div class="field">
+            <label for="days">عدد الأيام</label>
+            <input id="days" type="number" min="0" max="31" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="notes">ملاحظات</label>
+          <textarea id="notes" rows="3"></textarea>
+        </div>
+
+        <div class="actions">
+          <button class="primary" type="submit">حفظ تجريبي</button>
+          <button class="secondary" type="reset">مسح الحقول</button>
+        </div>
+        <p id="requestMessage" role="status"></p>
+      </form>
+    </section>
+
+    <section id="requests" class="card page hidden">
+      <h2>الطلبات المسجلة على هذا الجهاز</h2>
+      <p class="notice">
+        البيانات المعروضة محلية وتجريبية، وليست محفوظة في قاعدة بيانات مشتركة.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>رقم الكشف</th>
+              <th>التاريخ</th>
+              <th>الموظف</th>
+              <th>نوع الاستحقاق</th>
+              <th>الأيام</th>
+              <th>الحالة</th>
+            </tr>
+          </thead>
+          <tbody id="requestsTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="employees" class="card page hidden">
+      <h2>إدارة الموظفين</h2>
+      <p>سيتم تفعيل إضافة الموظفين واستيراد بياناتهم بعد ربط قاعدة البيانات.</p>
+    </section>
+
+    <section id="reports" class="card page hidden">
+      <h2>التقارير</h2>
+      <p>سيتم تفعيل التقارير الشهرية وتقارير الأقسام بعد ربط قاعدة البيانات.</p>
+      <button class="secondary" onclick="window.print()">طباعة الصفحة</button>
+    </section>
+  </section>
+</main>
+
+<footer>
+  منصة إدارة العمل الإضافي وبدل التغطية
+</footer>
+
+<script>
+  const login = document.getElementById('login');
+  const app = document.getElementById('app');
+  const loginMessage = document.getElementById('loginMessage');
+
+  /*
+    وضع تجريبي فقط:
+    لا توجد مصادقة حقيقية في هذه النسخة.
+    لا تستخدمها لحفظ بيانات موظفين حقيقية.
+  */
+  document.getElementById('loginForm').addEventListener('submit', event => {
+    event.preventDefault();
+    loginMessage.textContent =
+      'لم يتم تفعيل تسجيل الدخول بعد. سنربطه بنظام مصادقة آمن في المرحلة التالية.';
+  });
+
+  document.getElementById('logout').addEventListener('click', () => {
+    app.classList.add('hidden');
+    login.classList.remove('hidden');
+  });
+
+  document.querySelectorAll('nav [data-page]').forEach(button => {
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.page').forEach(page =>
+        page.classList.add('hidden')
+      );
+      document.getElementById(button.dataset.page).classList.remove('hidden');
+      document.querySelectorAll('nav [data-page]').forEach(item =>
+        item.classList.toggle('active', item === button)
+      );
+    });
+  });
+
+  const storageKey = 'alrawda_demo_requests';
+
+  function getRequests() {
+    try {
+      return JSON.parse(localStorage.getItem(storageKey) || '[]');
+    } catch {
+      return [];
+    }
+  }
+
+  function renderRequests() {
+    const requests = getRequests();
+    document.getElementById('totalRequests').textContent = requests.length;
+    document.getElementById('totalEmployees').textContent =
+      new Set(requests.map(item => item.employeeNumber)).size;
+    document.getElementById('pendingRequests').textContent =
+      requests.filter(item => item.status === 'قيد المراجعة').length;
+
+    document.getElementById('requestsTable').innerHTML = requests.map(item => `
+      <tr>
+        <td>${item.id}</td>
+        <td>${escapeHTML(item.date)}</td>
+        <td>${escapeHTML(item.employeeName)}</td>
+        <td>${escapeHTML(item.type)}</td>
+        <td>${item.days}</td>
+        <td>${item.status}</td>
+      </tr>
+    `).join('');
+  }
+
+  function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, char => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;',
+      '"': '&quot;', "'": '&#39;'
+    })[char]);
+  }
+
+  document.getElementById('requestForm').addEventListener('submit', event => {
+    event.preventDefault();
+
+    const requests = getRequests();
+    requests.push({
+      id: 'DEMO-' + Date.now(),
+      date: document.getElementById('requestDate').value,
+      department: document.getElementById('department').value.trim(),
+      section: document.getElementById('section').value.trim(),
+      employeeNumber: document.getElementById('employeeNumber').value.trim(),
+      employeeName: document.getElementById('employeeName').value.trim(),
+      days: Number(document.getElementById('days').value),
+      type: document.getElementById('requestType').value,
+      notes: document.getElementById('notes').value.trim(),
+      status: 'قيد المراجعة'
+    });
+
+    localStorage.setItem(storageKey, JSON.stringify(requests));
+    renderRequests();
+    document.getElementById('requestMessage').textContent =
+      'تم حفظ نموذج تجريبي على هذا الجهاز فقط، وليس في قاعدة بيانات مشتركة.';
+    event.target.reset();
+  });
+
+  renderRequests();
+</script>
+</body>
+  </html>
